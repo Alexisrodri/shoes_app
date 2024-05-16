@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:shoes_app/src/widgets/widgets.dart';
 
 class ShoePage extends StatelessWidget {
-   
+    
   const ShoePage({super.key});
   
   @override
