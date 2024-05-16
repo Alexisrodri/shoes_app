@@ -1,6 +1,7 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:shoes_app/src/helpers/helpers.dart';
 import 'package:shoes_app/src/models/shoe_model.dart';
 import 'package:shoes_app/src/widgets/widgets.dart';
 
@@ -9,6 +10,7 @@ class ShoeDescPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    cambiarStatusLight();
     return Scaffold(
         body: Column(
       children: [
@@ -17,9 +19,10 @@ class ShoeDescPage extends StatelessWidget {
             const Hero(
                 tag: 'Zapato-1', child: ShoeSizePreview(fullScreen: true)),
             Positioned(
-                top: 80,
+                top: 60,
                 child: FloatingActionButton(
                   onPressed: () {
+                    cambiarStatusDark();
                     Navigator.pop(context);
                   },
                   backgroundColor: Colors.transparent,
@@ -169,7 +172,7 @@ class _ButtonColor extends StatelessWidget {
       duration: const Duration(milliseconds: 300),
       child: GestureDetector(
         onTap: () {
-          final shoeModel = Provider.of<ShoeModel>(context,listen: false);
+          final shoeModel = Provider.of<ShoeModel>(context, listen: false);
           shoeModel.assetImage = assetImage;
         },
         child: Container(
