@@ -21,7 +21,7 @@ class ShoePage extends StatelessWidget {
               ],
             ),
           )),
-
+        AddCarShop(total: 180,)
         ],
       ),
     );
