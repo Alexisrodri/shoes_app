@@ -1,22 +1,27 @@
 import 'package:flutter/material.dart';
 
 class ShoeSizePreview extends StatelessWidget {
-  const ShoeSizePreview({super.key});
+  final bool? fullScreen;
+  const ShoeSizePreview({super.key, this.fullScreen = false});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+      padding:  EdgeInsets.symmetric(
+        horizontal: fullScreen! ? 0 : 20,
+        vertical: fullScreen! ? 0 : 5,
+      ),
       child: Container(
         width: double.infinity,
-        height: 430,
-        decoration: const BoxDecoration(
-            color: Color(0xFFF8C946),
-            borderRadius: BorderRadius.all(Radius.circular(50))),
-        child: const Column(
+        height: fullScreen! ? 410: 430 ,
+        decoration:  BoxDecoration(
+            color: const Color(0xFFF8C946),
+            borderRadius: fullScreen! ? const BorderRadius.only(bottomRight: Radius.circular(50),bottomLeft: Radius.circular(50),topRight: Radius.circular(40),topLeft: Radius.circular(40)) : BorderRadius.circular(50)),
+        child:  Column(
           children: [
-            _ShoeShadow(),
-            _ShoesSizes(),
+            const _ShoeShadow(),
+            if(!fullScreen!)
+            const _ShoesSizes(),
           ],
         ),
       ),
@@ -57,22 +62,20 @@ class _ShoeSizesBox extends StatelessWidget {
       alignment: Alignment.center,
       width: 45,
       height: 45,
-      decoration:   BoxDecoration(
-          color: (sizes == 9) ? const Color(0xFFF1a23a) : Colors.white ,
+      decoration: BoxDecoration(
+          color: (sizes == 9) ? const Color(0xFFF1a23a) : Colors.white,
           borderRadius: const BorderRadius.all(Radius.circular(10)),
           boxShadow: [
-            if(sizes == 9)
-             const BoxShadow(
-              color: Color(0xffffa23a),
-              blurRadius: 10,
-              offset: Offset(0, 5)
-            )
-            
+            if (sizes == 9)
+              const BoxShadow(
+                  color: Color(0xffffa23a),
+                  blurRadius: 10,
+                  offset: Offset(0, 5))
           ]),
       child: Text(
         sizes.toString().replaceAll('.0', ''),
-        style:   TextStyle(
-            color:(sizes == 9) ? Colors.white : const Color(0xFFF09415),
+        style: TextStyle(
+            color: (sizes == 9) ? Colors.white : const Color(0xFFF09415),
             fontSize: 16,
             fontWeight: FontWeight.bold),
       ),
