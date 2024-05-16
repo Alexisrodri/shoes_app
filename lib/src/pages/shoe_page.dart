@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:shoes_app/src/widgets/widgets.dart';
 
 class ShoePage extends StatelessWidget {

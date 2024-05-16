@@ -1,5 +1,7 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:provider/provider.dart';
+import 'package:shoes_app/src/models/shoe_model.dart';
 import 'package:shoes_app/src/widgets/widgets.dart';
 
 class ShoeDescPage extends StatelessWidget {
@@ -13,8 +15,7 @@ class ShoeDescPage extends StatelessWidget {
         Stack(
           children: [
             const Hero(
-              tag: 'Zapato-1',
-              child: ShoeSizePreview(fullScreen: true)),
+                tag: 'Zapato-1', child: ShoeSizePreview(fullScreen: true)),
             Positioned(
                 top: 80,
                 child: FloatingActionButton(
@@ -125,10 +126,21 @@ class _ColorsAndMore extends StatelessWidget {
           Expanded(
               child: Stack(
             children: [
-              Positioned(left: 90, child: _ButtonColor(Color(0xFF344A55))),
-              Positioned(left: 60, child: _ButtonColor(Color(0xFF3397F3))),
-              Positioned(left: 30, child: _ButtonColor(Color(0xFFF8AB0A))),
-              Positioned(child: _ButtonColor(Color(0xFFC2D72B))),
+              Positioned(
+                  left: 90,
+                  child: _ButtonColor(
+                      Color(0xFFC6D642), 1, 'assets/imgs/verde.png')),
+              Positioned(
+                  left: 60,
+                  child: _ButtonColor(
+                      Color(0xFFFFAD29), 2, 'assets/imgs/amarillo.png')),
+              Positioned(
+                  left: 30,
+                  child: _ButtonColor(
+                      Color(0xFF2099F1), 3, 'assets/imgs/azul.png')),
+              Positioned(
+                  child: _ButtonColor(
+                      Color(0xFF364D56), 4, 'assets/imgs/negro.png')),
             ],
           )),
           ButtonOrange(
@@ -145,15 +157,27 @@ class _ColorsAndMore extends StatelessWidget {
 
 class _ButtonColor extends StatelessWidget {
   final Color color;
+  final int index;
+  final String assetImage;
 
-  const _ButtonColor(this.color);
+  const _ButtonColor(this.color, this.index, this.assetImage);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 45,
-      height: 45,
-      decoration: BoxDecoration(color: color, shape: BoxShape.circle),
+    return FadeInLeft(
+      delay: Duration(milliseconds: index * 100),
+      duration: const Duration(milliseconds: 300),
+      child: GestureDetector(
+        onTap: () {
+          final shoeModel = Provider.of<ShoeModel>(context,listen: false);
+          shoeModel.assetImage = assetImage;
+        },
+        child: Container(
+          width: 45,
+          height: 45,
+          decoration: BoxDecoration(color: color, shape: BoxShape.circle),
+        ),
+      ),
     );
   }
 }
@@ -167,17 +191,21 @@ class _MontBuyNow extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 30),
       child: Container(
         margin: const EdgeInsets.only(top: 20, bottom: 20),
-        child: const Row(
+        child: Row(
           children: [
-            Text(
+            const Text(
               '\$180.0',
               style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
             ),
-            Spacer(),
-            ButtonOrange(
-              text: 'Buy now',
-              heigth: 35,
-              width: 120,
+            const Spacer(),
+            Bounce(
+              delay: const Duration(seconds: 1),
+              from: 8,
+              child: const ButtonOrange(
+                text: 'Buy now',
+                heigth: 35,
+                width: 120,
+              ),
             )
           ],
         ),

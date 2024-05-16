@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:shoes_app/src/models/shoe_model.dart';
 import 'package:shoes_app/src/pages/pages.dart';
 
 void main() {
-  runApp(const MainApp());
+  runApp(ChangeNotifierProvider(
+    create: ( _ ) => ShoeModel(),
+    child: const MainApp()
+  ));
 }
 
 class MainApp extends StatelessWidget {
