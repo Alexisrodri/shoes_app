@@ -34,12 +34,12 @@ class _ShoesSizes extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          _ShoeSizesBox(7,false),
-          _ShoeSizesBox(7.5,false),
-          _ShoeSizesBox(8,false),
-          _ShoeSizesBox(8.5,false),
-          _ShoeSizesBox(9,true),
-          _ShoeSizesBox(9.5,false),
+          _ShoeSizesBox(7),
+          _ShoeSizesBox(7.5),
+          _ShoeSizesBox(8),
+          _ShoeSizesBox(8.5),
+          _ShoeSizesBox(9),
+          _ShoeSizesBox(9.5),
         ],
       ),
     );
@@ -48,9 +48,8 @@ class _ShoesSizes extends StatelessWidget {
 
 class _ShoeSizesBox extends StatelessWidget {
   final double sizes;
-  final bool select;
 
-  const _ShoeSizesBox(this.sizes, this.select);
+  const _ShoeSizesBox(this.sizes);
 
   @override
   Widget build(BuildContext context) {
@@ -58,20 +57,22 @@ class _ShoeSizesBox extends StatelessWidget {
       alignment: Alignment.center,
       width: 45,
       height: 45,
-      decoration:  BoxDecoration(
-          color: select ? const Color(0xFFF09415) : Colors.white  ,
+      decoration:   BoxDecoration(
+          color: (sizes == 9) ? const Color(0xFFF1a23a) : Colors.white ,
           borderRadius: const BorderRadius.all(Radius.circular(10)),
-          boxShadow: const [
-            BoxShadow(
+          boxShadow: [
+            if(sizes == 9)
+             const BoxShadow(
               color: Color(0xffffa23a),
               blurRadius: 10,
               offset: Offset(0, 5)
             )
+            
           ]),
       child: Text(
         sizes.toString().replaceAll('.0', ''),
-        style:  TextStyle(
-            color: select ? Colors.white : const Color(0xfff1a23a),
+        style:   TextStyle(
+            color:(sizes == 9) ? Colors.white : const Color(0xFFF09415),
             fontSize: 16,
             fontWeight: FontWeight.bold),
       ),
