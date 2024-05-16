@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shoes_app/src/pages/pages.dart';
 
 class ShoeSizePreview extends StatelessWidget {
   final bool? fullScreen;
@@ -6,23 +7,30 @@ class ShoeSizePreview extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding:  EdgeInsets.symmetric(
-        horizontal: fullScreen! ? 0 : 20,
-        vertical: fullScreen! ? 0 : 5,
-      ),
-      child: Container(
-        width: double.infinity,
-        height: fullScreen! ? 420: 430 ,
-        decoration:  BoxDecoration(
-            color: const Color(0xFFF8C946),
-            borderRadius: fullScreen! ? const BorderRadius.only(bottomRight: Radius.circular(50),bottomLeft: Radius.circular(50),topRight: Radius.circular(40),topLeft: Radius.circular(40)) : BorderRadius.circular(50)),
-        child:  Column(
-          children: [
-            const _ShoeShadow(),
-            if(!fullScreen!)
-            const _ShoesSizes(),
-          ],
+    return GestureDetector(
+      onTap: () {
+        if(!fullScreen!){
+          Navigator.push(context, MaterialPageRoute(builder: (context) => const ShoeDescPage(),));
+        }
+      },
+      child: Padding(
+        padding:  EdgeInsets.symmetric(
+          horizontal: fullScreen! ? 0 : 20,
+          vertical: fullScreen! ? 0 : 5,
+        ),
+        child: Container(
+          width: double.infinity,
+          height: fullScreen! ? 420: 430 ,
+          decoration:  BoxDecoration(
+              color: const Color(0xFFF8C946),
+              borderRadius: fullScreen! ? const BorderRadius.only(bottomRight: Radius.circular(50),bottomLeft: Radius.circular(50),topRight: Radius.circular(40),topLeft: Radius.circular(40)) : BorderRadius.circular(50)),
+          child:  Column(
+            children: [
+              const _ShoeShadow(),
+              if(!fullScreen!)
+              const _ShoesSizes(),
+            ],
+          ),
         ),
       ),
     );

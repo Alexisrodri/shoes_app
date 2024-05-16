@@ -22,7 +22,7 @@ class AddCarShop extends StatelessWidget {
             const SizedBox(width: 20,),
             Text('\$$total',style:const TextStyle(fontSize: 28,fontWeight: FontWeight.bold),),
             const Spacer(),
-            const ButtonOrange(text: 'Add to cart'),
+            const ButtonOrange(text: 'Add to cart',heigth: 50,width: 120,),
             const SizedBox(width: 20,)
           ],
         ),

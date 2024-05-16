@@ -3,29 +3,157 @@ import 'package:flutter/widgets.dart';
 import 'package:shoes_app/src/widgets/widgets.dart';
 
 class ShoeDescPage extends StatelessWidget {
-   
   const ShoeDescPage({super.key});
-  
+
   @override
   Widget build(BuildContext context) {
-    return  const Scaffold(
-      body:Column(
-        children: [
-          ShoeSizePreview(fullScreen: true,),
-          Expanded(
+    return Scaffold(
+        body: Column(
+      children: [
+        Stack(
+          children: [
+            const Hero(
+              tag: 'Zapato-1',
+              child: ShoeSizePreview(fullScreen: true)),
+            Positioned(
+                top: 80,
+                child: FloatingActionButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  backgroundColor: Colors.transparent,
+                  elevation: 0,
+                  highlightElevation: 0,
+                  child: const Icon(
+                    Icons.chevron_left,
+                    size: 50,
+                    color: Colors.white,
+                  ),
+                ))
+          ],
+        ),
+        const Expanded(
             child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  ShoeDescription(
-                    title: 'Nike Air Max 720', 
-                    description:"The Nike Air Max 720 goes bigger than ever before with Nike's taller Air unit yet, offering more air underfoot for unimaginable, all-day comfort. Has Air Max gone too far? We hope so."),
-                  _MontBuyNow()
-                ],
-              )
-            )
+                child: Column(
+          children: [
+            ShoeDescription(
+                title: 'Nike Air Max 720',
+                description:
+                    "The Nike Air Max 720 goes bigger than ever before with Nike's taller Air unit yet, offering more air underfoot for unimaginable, all-day comfort. Has Air Max gone too far? We hope so."),
+            _MontBuyNow(),
+            _ColorsAndMore(),
+            _ButtonLikeCarShop()
+          ],
+        ))),
+      ],
+    ));
+  }
+}
+
+class _ButtonLikeCarShop extends StatelessWidget {
+  const _ButtonLikeCarShop();
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.symmetric(vertical: 30),
+      padding: const EdgeInsets.symmetric(horizontal: 30),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          const _ButtonShadow(
+            icon: Icon(
+              Icons.favorite,
+              color: Colors.red,
+              size: 25,
+            ),
+          ),
+          _ButtonShadow(
+            icon: Icon(
+              Icons.shopping_cart_checkout,
+              color: Colors.grey.withOpacity(0.4),
+              size: 25,
+            ),
+          ),
+          _ButtonShadow(
+            icon: Icon(
+              Icons.settings_outlined,
+              color: Colors.grey.withOpacity(0.5),
+              size: 25,
+            ),
           ),
         ],
-      )
+      ),
+    );
+  }
+}
+
+class _ButtonShadow extends StatelessWidget {
+  final Icon icon;
+
+  const _ButtonShadow({required this.icon});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 60,
+      height: 60,
+      decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(50),
+          boxShadow: const [
+            BoxShadow(
+                color: Colors.black12,
+                spreadRadius: -5,
+                blurRadius: 20,
+                offset: Offset(0, 10))
+          ]),
+      child: icon,
+    );
+  }
+}
+
+class _ColorsAndMore extends StatelessWidget {
+  const _ColorsAndMore();
+
+  @override
+  Widget build(BuildContext context) {
+    return const Padding(
+      padding: EdgeInsets.symmetric(horizontal: 10),
+      child: Row(
+        children: [
+          Expanded(
+              child: Stack(
+            children: [
+              Positioned(left: 90, child: _ButtonColor(Color(0xFF344A55))),
+              Positioned(left: 60, child: _ButtonColor(Color(0xFF3397F3))),
+              Positioned(left: 30, child: _ButtonColor(Color(0xFFF8AB0A))),
+              Positioned(child: _ButtonColor(Color(0xFFC2D72B))),
+            ],
+          )),
+          ButtonOrange(
+            text: 'More related items',
+            heigth: 30,
+            width: 170,
+            color: Color(0xffffc675),
+          )
+        ],
+      ),
+    );
+  }
+}
+
+class _ButtonColor extends StatelessWidget {
+  final Color color;
+
+  const _ButtonColor(this.color);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 45,
+      height: 45,
+      decoration: BoxDecoration(color: color, shape: BoxShape.circle),
     );
   }
 }
@@ -35,15 +163,22 @@ class _MontBuyNow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Padding(
-      padding: const EdgeInsets.symmetric(horizontal:30 ),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 30),
       child: Container(
-        margin: const EdgeInsets.only(top: 20),
+        margin: const EdgeInsets.only(top: 20, bottom: 20),
         child: const Row(
           children: [
-            Text('\$180.0',style: TextStyle(fontSize: 28,fontWeight: FontWeight.bold),),
+            Text(
+              '\$180.0',
+              style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+            ),
             Spacer(),
-            ButtonOrange(text: 'Buy now',heigth: 35,width: 120 ,)
+            ButtonOrange(
+              text: 'Buy now',
+              heigth: 35,
+              width: 120,
+            )
           ],
         ),
       ),
