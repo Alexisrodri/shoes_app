@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ShoeModel with ChangeNotifier {
-  String _assetImage = 'assets/imgs/azul.png';
+  String _assetImage = 'assets/imgs/negro.png';
   double _talla = 9.0;
 
   String get assetImage => _assetImage;

@@ -26,7 +26,7 @@ class ShoeSizePreview extends StatelessWidget {
         ),
         child: Container(
           width: double.infinity,
-          height: fullScreen! ? 400 : 400,
+          height: fullScreen! ? 420 : 430,
           decoration: BoxDecoration(
               color: const Color(0xFFF8C946),
               borderRadius: fullScreen!
