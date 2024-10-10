@@ -128,7 +128,12 @@ class _ShoeShadow extends StatelessWidget {
             right: 0,
             child: _ShoeShadows(),
           ),
-          Image.asset(shoeModel.assetImage)
+          Image.asset(
+            shoeModel.assetImage,
+            fit: BoxFit.contain,
+            scale: 1.0,
+            width: 300,
+          )
         ],
       ),
     );
