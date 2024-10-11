@@ -132,7 +132,7 @@ class _ShoeShadow extends StatelessWidget {
             shoeModel.assetImage,
             fit: BoxFit.contain,
             scale: 1.0,
-            width: 300,
+            // width: 300,
           )
         ],
       ),
