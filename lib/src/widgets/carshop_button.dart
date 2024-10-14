@@ -13,17 +13,30 @@ class AddCarShop extends StatelessWidget {
       child: Container(
         width: double.infinity,
         height: 100,
-        decoration:  BoxDecoration(
-          color: Colors.grey.shade100,
-          borderRadius: const BorderRadius.all(Radius.circular(100))
-        ),
-        child:  Row(
+        decoration: BoxDecoration(
+            color: Colors.grey.shade100,
+            borderRadius: const BorderRadius.all(Radius.circular(100))),
+        child: Row(
           children: [
-            const SizedBox(width: 20,),
-            Text('\$$total',style:const TextStyle(fontSize: 28,fontWeight: FontWeight.bold),),
+            const SizedBox(
+              width: 20,
+            ),
+            Text(
+              '\$$total',
+              style: const TextStyle(
+                  fontSize: 28,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black),
+            ),
             const Spacer(),
-            const ButtonOrange(text: 'Add to cart',heigth: 50,width: 120,),
-            const SizedBox(width: 20,)
+            const ButtonOrange(
+              text: 'Add to cart',
+              heigth: 50,
+              width: 120,
+            ),
+            const SizedBox(
+              width: 20,
+            )
           ],
         ),
       ),

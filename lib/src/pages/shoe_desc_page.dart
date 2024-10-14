@@ -17,7 +17,9 @@ class ShoeDescPage extends StatelessWidget {
         Stack(
           children: [
             const Hero(
-                tag: 'Zapato-1', child: ShoeSizePreview(fullScreen: true)),
+              tag: 'Zapato-1',
+              child: ShoeSizePreview(fullScreen: true),
+            ),
             Positioned(
                 top: 60,
                 child: FloatingActionButton(
@@ -28,6 +30,14 @@ class ShoeDescPage extends StatelessWidget {
                   backgroundColor: Colors.transparent,
                   elevation: 0,
                   highlightElevation: 0,
+                  enableFeedback: false,
+                  hoverColor: Colors.transparent,
+                  disabledElevation: 0,
+                  focusColor: Colors.transparent,
+                  foregroundColor: Colors.transparent,
+                  hoverElevation: 0,
+                  splashColor: Colors.transparent,
+                  tooltip: 'Home',
                   child: const Icon(
                     Icons.chevron_left,
                     size: 50,
