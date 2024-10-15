@@ -21,7 +21,7 @@ void main() {
           // AccessibilitySection(),
           SettingsSection()
         ],
-        enabled: !kReleaseMode,
+        enabled: true,
         builder: (context) => const MainApp(),
       )));
 }
