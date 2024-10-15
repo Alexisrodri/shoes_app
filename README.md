@@ -1,7 +1,10 @@
 # Shoe Store
 
 **Shoe Store**
+
 Esta es una aplicación Flutter que simula una tienda de zapatos, donde los usuarios pueden explorar diferentes modelos de zapatos tocando el color correspondiente.
+
+https://github.com/user-attachments/assets/fb080f57-6022-4435-85b6-2dc59a9e21a1
 
 ## Características
 
