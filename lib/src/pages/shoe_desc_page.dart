@@ -51,9 +51,9 @@ class ShoeDescPage extends StatelessWidget {
                 child: Column(
           children: [
             ShoeDescription(
-                title: 'Nike Air Max 720',
+                title: 'Nike Mercurial Vapor 15',
                 description:
-                    "The Nike Air Max 720 goes bigger than ever before with Nike's taller Air unit yet, offering more air underfoot for unimaginable, all-day comfort. Has Air Max gone too far? We hope so."),
+                    "Está equipado con una unidad Zoom Air para que pises el acelerador en los últimos compases del partido, cuando más importa. Fast is in the Air."),
             _MontBuyNow(),
             _ColorsAndMore(),
             _ButtonLikeCarShop()

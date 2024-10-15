@@ -24,9 +24,9 @@ class ShoePage extends StatelessWidget {
                   child: ShoeSizePreview(),
                 ),
                 ShoeDescription(
-                    title: 'Nike Air Max 720',
+                    title: 'Nike Mercurial Vapor 15',
                     description:
-                        "The Nike Air Max 720 goes bigger than ever before with Nike's taller Air unit yet, offering more air underfoot for unimaginable, all-day comfort. Has Air Max gone too far? We hope so."),
+                        "Expresa tu lado creativo con una variedad de colores vibrantes y llamativos diseñados para tu estilo distintivo y atrevido. Con detalles de diseño especiales, como opciones de color excéntricas, mensajes personalizados y un gráfico actualizado, tu creatividad dentro o fuera de la cancha no tiene límites."),
               ],
             ),
           )),
