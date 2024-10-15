@@ -141,19 +141,19 @@ class _ColorsAndMore extends StatelessWidget {
             children: [
               Positioned(
                   left: 90,
-                  child: _ButtonColor(
-                      Color(0xFFC6D642), 1, 'assets/imgs/air-max/verde.png')),
+                  child: _ButtonColor(Color(0xFFC6D642), 1,
+                      'assets/imgs/mercurial-vapor/green.png')),
               Positioned(
                   left: 60,
-                  child: _ButtonColor(Color(0xFFFFAD29), 2,
-                      'assets/imgs/air-max/amarillo.png')),
+                  child: _ButtonColor(Color(0xFF25359F), 2,
+                      'assets/imgs/mercurial-vapor/blue.png')),
               Positioned(
                   left: 30,
-                  child: _ButtonColor(
-                      Color(0xFF2099F1), 3, 'assets/imgs/air-max/azul.png')),
+                  child: _ButtonColor(Color(0xFFF14620), 3,
+                      'assets/imgs/mercurial-vapor/red.png')),
               Positioned(
-                  child: _ButtonColor(
-                      Color(0xFF364D56), 4, 'assets/imgs/air-max/negro.png')),
+                  child: _ButtonColor(Color(0xFF364D56), 4,
+                      'assets/imgs/mercurial-vapor/black.png')),
             ],
           )),
           ButtonOrange(
